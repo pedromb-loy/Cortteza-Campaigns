@@ -1,0 +1,9 @@
+.sidebar-wrapper {
+    /* background: #333333; */
+}
+.sidebar-wrapper li, .sidebar-wrapper p, .timeout-labels {
+    /* color: white !important; */
+}
+.timeout-labels strong {
+    /* color: white !important; */
+}

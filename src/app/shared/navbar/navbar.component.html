@@ -1,0 +1,75 @@
+<style>
+    .bucket-dd {
+        max-height: 50vh;
+        overflow: auto;
+    }
+    .bucket-selected-row {
+        /* background-color: #66615B; */
+        border-bottom: 2px solid #66615B;
+    }
+    .bucket-selected-row p {
+        margin: auto;
+        padding: 5px;
+        color: #DD0337;
+        font-weight:  bold;
+    }
+    .text-center {
+        text-align: center;
+    }
+</style>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button id="sidebar-button" type="button" class="navbar-toggle" (click)="sidebarToggle()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar bar1"></span>
+                <span class="icon-bar bar2"></span>
+                <span class="icon-bar bar3"></span>
+            </button>
+            <a class="navbar-brand" href="#"> Sección <span *ngIf="selectedBucket != ''">| <strong>Bucket Seleccionado</strong></span></a>            
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="ti-user"></i>
+                        <p>{{lang['cboUser'][selectedLang]}}</p>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a>{{lang['optMyStats'][selectedLang]}}</a>
+                            <a (click)="DoLogout()">{{lang['optLogOut'][selectedLang]}}</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="ti-server"></i>                            
+                            <p>{{lang['cboMyBuckets'][selectedLang]}}</p>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu bucket-dd">
+                            <li *ngFor="let bucket of _buckets">
+                                <a (click)="onClick(bucket)">{{bucket.name}}</a>
+                            </li>
+                        </ul>
+                    </li> 
+                -->
+
+                <li>
+                    <button (click)="openBucketSelector()" class="btn">Buckets</button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="row bucket-selected-row text-center" *ngIf="selectedBucketName!=''">
+    <div class="col-md-12">
+        <p>Nombre de Bucket (Id del bucket)</p>
+    </div>    
+</div>

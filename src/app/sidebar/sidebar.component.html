@@ -1,0 +1,76 @@
+<style>
+    .text-center {
+        text-align: center;
+    }
+    .company-logo {
+        text-align: center !important;        
+        padding: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        
+    }
+
+    .company-logo img {
+        width: auto;
+        height: auto; 
+        margin: auto;
+        max-height: 40px;
+    }
+
+    .default-company-logo {
+        height:54px;
+    }
+    .default-company-logo img {        
+        width: 70% !important;   
+        margin-top:15px;     
+    }
+
+    @media (max-width: 990px) {
+        .default-company-logo {
+            height:40px;            
+        }
+        .default-company-logo img {        
+            width: 70% !important;   
+            margin-top:10px;     
+        }
+    }
+
+    @media (min-width: 991px) {
+        .show-buckets-on-sidebar {
+            display: none;
+        }
+    }
+</style>
+<div class="sidebar-wrapper">
+    <div class="company-logo" *ngIf="companyLogoCDNUrl!=''">
+        <img src="{{companyLogoCDNUrl}}" alt="" style="width:auto">
+    </div>
+    <div class="company-logo default-company-logo" *ngIf="companyLogoCDNUrl==''">
+        <img src="./assets/img/logo-mini.png" alt="">
+    </div>
+    <!-- <hr /> -->
+
+    <ul class="nav">
+        <li class="text-center" *ngIf="idleState!=''">
+            <p class="timeout-labels">
+                <strong>{{idleState}}</strong><br />
+                <strong>{{idleStateSubTitle}}</strong>
+            </p>
+        </li>
+        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+            <a [routerLink]="[menuItem.path]" (click)="sidebarToggle()">
+                <i class="{{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+
+        <!-- <hr /> -->
+        
+        <li class="show-buckets-on-sidebar" *ngFor="let bucket of _buckets"  routerLinkActive="active" style="height:40px">
+            <a (click)="onClick(bucket)">{{bucket.name}}</a>
+        </li>
+
+        <hr class="show-buckets-on-sidebar" />
+        
+    </ul>
+</div>

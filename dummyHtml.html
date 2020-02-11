@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{padding: 5px 10px}
+        b {color: #43b02a;}
+        h2{text-align: center;}
+        hr{width: 100%;}
+        h4{text-align: center; margin: 0px;}
+        .container {
+            /* display: grid;
+            justify-content: center; */
+            display: flex;
+            flex-flow: column wrap;
+        }
+
+        .footer{
+            margin-top: 5%;
+            background-color: rgb(163, 160, 160);
+            padding: 15px;
+        }
+        
+        p {
+            text-align: center;
+            margin-bottom: 5%;
+        }
+
+        table {
+            /* display: grid;
+            justify-content: center; */
+            align-self: center;
+            border-collapse: collapse;
+            /* border-spacing: 15px; */
+        }
+
+        tr {
+            border-top: solid 1px gray;
+            border-bottom: solid 1px gray;
+        }
+
+        img{width: 527px;height: 117px;transform: scale(0.8);align-self: center;}
+
+        .img{width: 100%;background-color: #43b02a;align-items: center;display: flex;justify-content: center;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img"><img src="./cortt.png" alt="Logo Cortteza"></div>
+        <h2>Nueva Campaña Creada</h2>
+        <hr>
+        <p>Una nueva campaña de email marketing ha sido creada a través de la
+            cuenta <b>"nombre de cuenta"</b> asociada al bucket <b>BucketId</b></p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Campaña</td>
+                    <td><b>Nombre de campaña</b></td>
+                </tr>
+                <tr>
+                    <td>ID de campaña</td>
+                    <td><b>00</b></td>
+                </tr>
+                <tr>
+                    <td>ID de lista de destinatarios</td>
+                    <td><b>00</b></td>
+                </tr>
+                <tr>
+                    <td>Fecha de creación</td>
+                    <td><b>11/01/2020</b></td>
+                </tr>
+                <tr>
+                    <td>Cantidad de contactos</td>
+                    <td><b>1000</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="container footer">
+        <p>¿Necesita soporte? Contacte al correo <a href="">correo@deSoporte.com</a></p>
+        <h4>Loymark S.A</h4>
+    </footer>
+
+</body>
+
+</html>

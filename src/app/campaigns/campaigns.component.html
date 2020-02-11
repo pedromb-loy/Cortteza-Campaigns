@@ -1,1 +1,132 @@
-<p>campaigns works!</p>
+<div class="mainContainer">
+    <ngx-spinner>
+        <p style="font-size: 20px; color: white">Espera un momento mientras procesamos tu campaña...</p>
+    </ngx-spinner>
+
+    <div class="breadcrumbs">
+        <ul class="list-unstyled">
+            <li><a href="javascript:void(0)" (click)="setScreen('basicInfo')">Información de la campaña</a></li>&#62;
+            <li><a href="javascript:void(0)" (click)="setScreen('segmentSelector')">Selección de población</a></li>
+        </ul>
+    </div>
+
+    <div class="gridContainer" [@slide]="screen">
+
+        <div class="basicInfo">
+            <div class="title">
+                <h4>1. Define la información de tu campaña</h4>
+            </div>
+
+            <div class="mainForm">
+                <div class="form">
+                    <form [formGroup]="form" (ngSubmit)="submitForm()" >
+                        <div>
+                            <label for="">Nombre:</label>
+                            <input type="text" name="name" id="" placeholder="Nombre de la Campaña" (change)="setCampaignName($event.target.value)">
+                        </div>
+
+                        <div>
+                            <label for="">Subject:</label>
+                            <input type="text" name="subject" placeholder="Subject de la Campaña" (change)="setCampaignSubject($event.target.value)">
+                        </div>
+                    </form>
+
+                    <div class="btnCreateCampaign">
+                        <button (click)="nextScreen()">Siguiente &#187;</button>
+                    </div>
+                </div>
+
+                <div class="preview">
+                    <div>
+                        <h4>Imagen</h4>
+                    </div>
+                    <div class='prev'>
+                        <div class="custom-file-container" data-upload-id="fileUpload">
+                            <label class="custom-file-container__custom-file">
+                                <input type="file" class="custom-file-container__custom-file__custom-file-input"
+                                    accept="*" aria-label="Elige la imagen de la campaña">
+                                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                                <span class="custom-file-container__custom-file__custom-file-control"></span>
+                            </label>
+                            <label class="custom-file-container__image-clear clear-image">&#215; Eliminar
+                                Imagen</label>
+                            <div class="custom-file-container__image-preview imgPreview"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="segmentSelectorForm">
+            <div class="title">
+                <h4>2. Selecciona los segmentos participantes dentro de la campaña</h4>
+            </div>
+
+            <div class="segments">
+                <div [ngClass]="{'active' : isSegmentActive(1) , 'retain': true }"  (click)="setCampaingSegments({name:'A retener', id:1})">
+                    <i class="ti-heart"></i>
+                    <p>A Retener</p> 
+                    <small>20 Clientes</small>
+                </div>
+                <div [ngClass]="{'active' : isSegmentActive(2) , 'increaseM': true }" (click)="setCampaingSegments({name:'Incrementar F', id:2})">
+                    <i class="ti-money"></i>
+                    <p>Incrementar M.</p> 
+                    <small>19 Clientes</small>
+                </div>
+                <div [ngClass]="{'active' : isSegmentActive(3) , 'increaseF': true }" (click)="setCampaingSegments({name:'Incrementar M', id:3})">
+                    <i class="ti-location-pin"></i>
+                    <p>Incrementar F.</p> 
+                    <small>20 Clientes</small>
+                </div>
+                <div [ngClass]="{'active' : isSegmentActive(4) , 'bringBack': true }" (click)="setCampaingSegments({name:'Traer de Regreso', id:4})">
+                    <i class="ti-announcement"></i>
+                    <p>Traer de Regreso</p>
+                     <small>85 Clientes</small>
+                </div>
+                <div [ngClass]="{'active' : isSegmentActive(5) , 'ocasionals': true }" (click)="setCampaingSegments({name:'Ocasionales', id:5})">
+                    <i class="ti-pulse"></i>
+                    <p>Ocasionales</p> 
+                    <small>170 Clientes</small>
+                </div>
+            </div>
+
+            <div class="clientCount">
+                <p>Total de población seleccionada:</p>
+                <h4>38 clientes</h4>
+            </div>
+
+            <div class="selectedSegments">
+                <p>Segmentos Seleccionados:</p>
+                <ul class="ss">
+                    <li *ngFor = "let segment of campaign.segments" [@popUp]="'start'">{{segment.name}}</li>
+                    <!-- <div>Incrementar M</div> -->
+                </ul>
+            </div>
+
+            <div class="buttons">
+                <button (click)="prevScreen()">&#171; Atrás</button>
+                <button (click)="submitForm()">Crear Campaña</button>
+            </div>
+        </div>
+
+    </div>
+
+    
+</div>
+
+
+
+<!-- V3 -->
+<!-- <div class='contain'>
+    <div class="panes" [@slide]="screen">
+        <div class="red"></div>
+        <div class="blue"></div>
+        <div class="green"></div>
+        <div class="yellow"></div>
+    </div>
+</div> -->
+
+
+<!-- <button (click)="handleScreen()"> Change panel</button> -->

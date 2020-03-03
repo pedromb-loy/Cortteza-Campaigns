@@ -30,16 +30,13 @@
                             <input type="text" name="subject" placeholder="Subject de la Campaña" (change)="setCampaignSubject($event.target.value)">
                         </div>
                     </form>
-
-                    <div class="btnCreateCampaign">
-                        <button (click)="nextScreen()">Siguiente &#187;</button>
-                    </div>
                 </div>
 
                 <div class="preview">
                     <div>
                         <h4>Imagen</h4>
                     </div>
+                    
                     <div class='prev'>
                         <div class="custom-file-container" data-upload-id="fileUpload">
                             <label class="custom-file-container__custom-file">
@@ -53,13 +50,16 @@
                             <div class="custom-file-container__image-preview imgPreview"></div>
                         </div>
                     </div>
+                </div>
 
+                <div class="btnCreateCampaign" [@popUp]="'start'" *ngIf="hasName && hasSubject">
+                    <button (click)="nextScreen()">Siguiente &#187;</button>
                 </div>
             </div>
 
         </div>
 
-        <div class="segmentSelectorForm">
+        <div class="segmentSelectorForm" >
             <div class="title">
                 <h4>2. Selecciona los segmentos participantes dentro de la campaña</h4>
             </div>

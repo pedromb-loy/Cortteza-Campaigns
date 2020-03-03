@@ -12,7 +12,12 @@ const routes: Routes = [{
 {
   path: 'campaigns',
   component: CampaignListComponent
-}];
+},
+{
+  path: 'createcampaign',
+  component: CampaignsComponent
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

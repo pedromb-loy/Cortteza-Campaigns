@@ -32,29 +32,73 @@ $amarillo: rgb(211, 93, 93);
     margin-bottom: 25px;
     align-items: center;
 
+    .encabezado{
+      flex: 0 0 100%;
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+      
+      button {
+        padding: 5px;
+        background: none;
+        border: solid 1px $pink;
+        flex: 0 0 20%;
+        color: $pink;
+        transition: 0.5s;
+        &:hover {
+          background-color: $pink;
+          color: white;
+        }
+      }
+    }
+
     h1 {
       //display: inline;
       flex: 0 0 80%;
       margin: 0px;
     }
 
-    button {
-      padding: 5px;
-      background: none;
-      border: solid 1px $pink;
-      flex: 0 0 20%;
-      color: $pink;
-      transition: 0.5s;
-      &:hover {
-        background-color: $pink;
-        color: white;
+    .searchBar{
+      display: flex;
+      flex: 0 0 80%;
+      align-items: center;
+      input {
+        flex: 0 0 95%;
+        //width: 100%;
+        padding: 3px;
+        //margin-top: 10px;
+      }
+      button{
+        flex: 0 0 5%;
+        padding: 3px 0px;
       }
     }
 
-    input {
-      width: 100%;
-      padding: 3px;
-      margin-top: 10px;
+    .paginator{
+      flex: 0 0 20%;
+      display: flex;
+      flex-flow: wrap row;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+
+      b{
+        color: black;
+      }
+
+      .buttons{
+        margin-left: 10px;
+        button{
+          color: gray;
+          border: solid 1px gray; 
+          padding: 5px 10px;
+          transition: .5s;
+          &:hover{
+            background-color: gray;
+            color: white;
+          }
+        }
+      }
     }
   }
 
@@ -274,6 +318,16 @@ $amarillo: rgb(211, 93, 93);
         }
       }
     }
+  }
+
+  .noCampaigns{
+    text-align: center;
+    display: flex;
+    flex: 0 0 100%;
+    flex-flow: wrap column;
+    justify-content: center;
+    border: dotted 1px gray;
+    border-radius: 5px;
   }
 
   .loading {

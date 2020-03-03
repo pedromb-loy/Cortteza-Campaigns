@@ -1,11 +1,23 @@
 <div class="flex-container">
     <div class="title">
-        <h1>Campañas</h1>
-        <button><i class="ti-plus"></i> Crear Nueva Campaña</button>
-        <input type="text" (change)="searchCampaigns()" placeholder="Buscar campañas">
+        <div class="encabezado">
+            <h1>Campañas</h1>
+            <button (click)="openCreateCampaign()"><i class="ti-plus"></i> Crear Nueva Campaña</button>
+        </div> 
+        <div class="searchBar">
+            <input *ngIf="!noCampaigns" type="text" (change)="handleTextSearch($event.target.value)" placeholder="Buscar campañas" >
+            <button (click)="searchCampaigns()"><i class="ti-search"></i></button>
+        </div>
+        <div class="paginator">
+            <b>{{pages.min}}-{{pages.max}}</b>
+            <div class="buttons">
+                <button (click)="prevPage()"><i class="ti-angle-left"></i></button>
+                <button (click)="nextPage()"><i class="ti-angle-right"></i></button>
+            </div>
+        </div>
     </div>
 
-    <div class="controls">
+    <div class="controls" *ngIf="!noCampaigns">
         <div>
             <input type="checkbox" name="" id="" (click)="toggleHideDrafts()">
             <label>Ocultar campañas en revisión</label>
@@ -74,7 +86,12 @@
         </div>
     </div>
 
-    <div class="loading" *ngIf="campaigns == null">
+    <div class="noCampaigns" *ngIf="noCampaigns">
+        <h3>Crea una nueva campaña</h3>
+        <p>Aqui podrás visualizar las campañas que crees</p>
+    </div>
+
+    <div class="loading" *ngIf="showLoading">
         <i class="ti-settings"></i>
         <h2>Cargando datos</h2>
     </div>

@@ -43,6 +43,8 @@ export class CampaignsComponent implements OnInit {
   requestBody: Object;
   private hasName = false;
   private hasSubject = false;
+  private hasImage = false;
+  private dataProvided = false;
   private uploadInput: FileUploadWithPreview;
 
   constructor(
@@ -117,6 +119,7 @@ export class CampaignsComponent implements OnInit {
   setCampaignName(name) {
     if (name == "") { this.hasName = false } else { this.hasName = true }
     this.campaign.name = name;
+    this.isDataprovided();
     this.setRequestBody();
   }
 
@@ -124,6 +127,7 @@ export class CampaignsComponent implements OnInit {
     if (subject == "") { this.hasSubject = false } else { this.hasSubject = true; }
     this.campaign.subject = subject;
     this.setRequestBody();
+    this.isDataprovided();
   }
 
   setCampaingSegments(segment: any) {
@@ -201,6 +205,15 @@ export class CampaignsComponent implements OnInit {
 
   }
 
+  isDataprovided(){
+    if(this.hasImage && this.hasName && this.checkUploadFile()){
+      this.dataProvided = true;
+    }
+    else{
+      this.dataProvided=false;
+    }
+  }
+
   //3. Data Checking Functions (DEV ONLY) --------------------------------------------------
 
   checkFiles = () => {
@@ -208,7 +221,8 @@ export class CampaignsComponent implements OnInit {
   }
 
   checkUploadFile() {
-    return (this.uploadInput.cachedFileArray[0] != null && this.uploadInput.cachedFileArray[0] != undefined);
+    let result = this.uploadInput.cachedFileArray[0] != null && this.uploadInput.cachedFileArray[0] != undefined;
+    return result;
   }
 
   checkSegments() {

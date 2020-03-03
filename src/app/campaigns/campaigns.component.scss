@@ -61,7 +61,7 @@ $ocasionals-color: #dd0330;
   .mainForm {
     padding: 15px;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 100%;
     grid-column: 1 4;
 
     .form {
@@ -70,35 +70,15 @@ $ocasionals-color: #dd0330;
       div {
         margin: 3em 0px;
         display: grid;
-        grid-template-columns: 15% 85%;
-        justify-content: start;
+        grid-template-columns: 15% 55%;
+        justify-content: center;
         align-content: center;
-
-        &.btnCreateCampaign {
-          display: grid;
-          grid-template-columns: 50%;
-          button {
-            padding: 15px 5px;
-            border-radius: 7px;
-            background-color: white;
-            color: $dark-pink;
-            border: solid 1.1px $dark-pink;
-            cursor: pointer;
-            font-size: 1.5em;
-            transition: 0.8s;
-
-            &:hover {
-              background-color: $dark-pink;
-              color: white;
-            }
-          }
-        }
       }
     }
 
     .preview {
       display: grid;
-      grid-template-columns: 100%;
+      grid-template-columns: 70%;
       grid-template-rows: 10% 90%;
       align-content: center;
       justify-content: center;
@@ -107,6 +87,7 @@ $ocasionals-color: #dd0330;
         display: grid;
         align-content: center;
         justify-content: center;
+        grid-template-columns: 70%;
       }
 
       h4 {
@@ -143,6 +124,27 @@ $ocasionals-color: #dd0330;
           background-size: contain;
         }
         //width: 80%;
+      }
+    }
+
+    .btnCreateCampaign {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+      button {
+        padding: 5px 15px;
+        border-radius: 7px;
+        background-color: white;
+        color: $dark-pink;
+        border: solid 1.1px $dark-pink;
+        cursor: pointer;
+        font-size: 1.5em;
+        transition: 0.8s;
+
+        &:hover {
+          background-color: $dark-pink;
+          color: white;
+        }
       }
     }
   }

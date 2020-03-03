@@ -1,0 +1,298 @@
+$pink: #dd0337;
+$green: rgb(114, 185, 105);
+$celeste: rgb(87, 187, 218);
+$amarillo: rgb(211, 93, 93);
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: wrap column;
+  padding: 15px;
+  color: #beb3b3;
+
+  .title {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 0 0 100%;
+    margin-bottom: 25px;
+    align-items: center;
+
+    h1 {
+      //display: inline;
+      flex: 0 0 80%;
+      margin: 0px;
+    }
+
+    button {
+      padding: 5px;
+      background: none;
+      border: solid 1px $pink;
+      flex: 0 0 20%;
+      color: $pink;
+      transition: 0.5s;
+      &:hover {
+        background-color: $pink;
+        color: white;
+      }
+    }
+
+    input {
+      width: 100%;
+      padding: 3px;
+      margin-top: 10px;
+    }
+  }
+
+  .controls {
+    display: flex;
+    flex: 0 0 100%;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    max-height: 50px;
+    div {
+      flex: 0 0 25%;
+      display: flex;
+      padding: 5px;
+      border-radius: 5px;
+      justify-content: center;
+      input[type="checkbox"] {
+        margin-right: 2%;
+      }
+    }
+  }
+
+  .campaign-container {
+    flex: 0 0 100%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: flex-start;
+    h4 {
+      align-self: flex-start;
+    }
+
+    .campaign-card {
+      flex: 0 0 30%;
+      display: flex;
+      flex-flow: wrap column;
+      background-color: white;
+      border-radius: 10px;
+      align-content: center;
+      justify-content: flex-start;
+      min-height: 500px;
+      margin: 0px 1.5% 25px 1.5%;
+      //margin-top: 25px;
+
+      .campaignTitle {
+        text-align: center;
+        margin-bottom: 5%;
+      }
+
+      .sent {
+        display: flex;
+        min-width: 80%;
+        flex-flow: row wrap;
+        justify-content: center;
+        .env {
+          border-bottom: solid 1px gray;
+          margin-bottom: 30px;
+          flex: 0 0 80%;
+          text-align: center;
+          color: $pink;
+        }
+        h5 {
+          width: 100%;
+          text-align: center;
+          align-self: flex-start;
+          margin-bottom: 0px;
+        }
+        .stats {
+          flex: 0 0 80%;
+          display: flex;
+          justify-content: center;
+          align-content: center;
+          margin-bottom: 25px;
+        }
+
+        .list {
+          display: flex;
+          flex: 0 0 80%;
+          flex-flow: wrap column;
+          h4 {
+            margin: 0px;
+          }
+
+          .entregados {
+            padding-bottom: 5px;
+            width: 100%;
+            justify-content: center;
+            align-content: center;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: dotted 1px gray;
+            h4 {
+              color: $celeste;
+            }
+            small {
+              background-color: $celeste;
+              color: white;
+              padding: 1px 5px 1px 5px;
+              border-radius: 5px;
+            }
+          }
+
+          .abre {
+            width: 100%;
+            display: flex;
+            flex-flow: wrap row;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: dotted 1px gray;
+
+            .abiertos {
+              padding: 5px;
+              //flex: 0 0 50%;
+              h4 {
+                color: $green;
+              }
+              small {
+                background-color: $green;
+                color: white;
+                padding: 1px 5px 1px 5px;
+                border-radius: 5px;
+              }
+              // display: flex;
+              // flex-flow: wrap column;
+            }
+
+            .rebotados {
+              padding: 5px;
+              //flex: 0 0 50%;
+              h4 {
+                color: $amarillo;
+              }
+              small {
+                background-color: $amarillo;
+                color: white;
+                padding: 1px 5px 1px 5px;
+                border-radius: 5px;
+              }
+              // display: flex;
+              // flex-flow: wrap column;
+            }
+          }
+        }
+      }
+
+      .inProcess {
+        flex: 0 0 65%;
+        display: flex;
+        flex-flow: wrap column;
+        justify-content: space-evenly;
+        align-content: center;
+
+        i {
+          &::before {
+            color: $pink;
+            font-size: 11em;
+          }
+          text-align: center;
+          -webkit-animation: spin 35s linear infinite;
+          -moz-animation: spin 35s linear infinite;
+          animation: spin 35s linear infinite;
+        }
+      }
+
+      .detailButton {
+        flex: 0 0 auto;
+        display: flex;
+        flex-flow: wrap column;
+        justify-content: center;
+        align-content: center;
+
+        button {
+          border: solid 1px#DD0337;
+          padding: 5px 15px;
+          color: #dd0337;
+          border-radius: 15px;
+          background: none;
+          transition: 0.5s;
+
+          &:hover {
+            background-color: #dd0337;
+            color: white;
+          }
+        }
+      }
+
+      .statsFormatSelector {
+        flex: 0 0 auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-content: center;
+        cursor: pointer;
+
+        div {
+          flex: 0 0 50%;
+          display: flex;
+          flex-flow: column wrap;
+          i {
+            text-align: center;
+            transition: 0.5s;
+          }
+          label {
+            opacity: 0;
+            text-align: center;
+            transition: 0.5s;
+            color: black;
+          }
+          &:hover {
+            label {
+              opacity: 1;
+            }
+            i {
+              color: black;
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loading {
+    flex: 0 0 100%;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+    i {
+      &::before {
+        color: $pink;
+        font-size: 16em;
+      }
+      text-align: center;
+      -webkit-animation: spin 35s linear infinite;
+      -moz-animation: spin 35s linear infinite;
+      animation: spin 35s linear infinite;
+    }
+  }
+}

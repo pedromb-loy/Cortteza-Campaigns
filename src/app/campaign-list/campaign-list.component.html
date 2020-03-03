@@ -1,1 +1,81 @@
-<p>campaign-list works!</p>
+<div class="flex-container">
+    <div class="title">
+        <h1>Campañas</h1>
+        <button><i class="ti-plus"></i> Crear Nueva Campaña</button>
+        <input type="text" (change)="searchCampaigns()" placeholder="Buscar campañas">
+    </div>
+
+    <div class="controls">
+        <div>
+            <input type="checkbox" name="" id="" (click)="toggleHideDrafts()">
+            <label>Ocultar campañas en revisión</label>
+        </div>
+    </div>
+
+    <div class="campaign-container" *ngIf="campaigns != null">
+        <div class="campaign-card" *ngFor="let campaign of campaigns">
+            <div class="campaignTitle">
+                <h4>{{campaign.name}}</h4>
+
+            </div>
+
+            <div class="sent" *ngIf="campaign.status=='sent'">
+                <div class="env">
+                    <h5>{{campaign.formatStats.s}}</h5>
+                    <h6>correos enviados</h6>
+                </div>
+                <div class="stats" *ngIf="campaign.screen=='chart'">
+                    <canvas baseChart [datasets]="campaign.dataset" [chartType]="chartType" [options]="barChartOptions"
+                        [plugins]="chartPlugins">
+                    </canvas>
+                </div>
+
+                <div class="list" *ngIf="campaign.screen=='list'">
+                    <div class="entregados">
+                        <h6>Entregados</h6>
+                        <h4>{{campaign.formatStats.e.perc}}%</h4>
+                        <small>{{campaign.formatStats.e.num}} correos</small>
+                    </div>
+                    <div class="abre">
+                        <div class="abiertos">
+                            <h6>Abiertos</h6>
+                            <h4>{{campaign.formatStats.a.perc}}%</h4>
+                            <small>{{campaign.formatStats.a.num}} correos</small>
+                        </div>
+                        <div class="rebotados">
+                            <h6>rebotados</h6>
+                            <h4>{{campaign.formatStats.r.perc}}%</h4>
+                            <small>{{campaign.formatStats.r.num}} correos</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="inProcess" *ngIf="campaign.status != 'sent'">
+                <i class="ti-settings"></i>
+                <p>Su campaña está siendo procesada</p>
+            </div>
+
+            <div class="detailButton" *ngIf="campaign.status == 'sent'">
+                <button>Ver Detalle</button>
+            </div>
+
+            <div class="statsFormatSelector" *ngIf="campaign.status=='sent'">
+                <div (click)="changeCampaignScreen('list', campaign['ID-cortteza'])">
+                    <label>Listado</label>
+                    <i class="ti-align-justify"></i>
+                </div>
+                <div (click)="changeCampaignScreen('chart',campaign['ID-cortteza'])">
+                    <label>Gráfico</label>
+                    <i class="ti-pie-chart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" *ngIf="campaigns == null">
+        <i class="ti-settings"></i>
+        <h2>Cargando datos</h2>
+    </div>
+</div>

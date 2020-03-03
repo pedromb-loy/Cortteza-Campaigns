@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ChartsModule } from 'ng2-charts';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +32,8 @@ import { CampaignListComponent } from './campaign-list/campaign-list.component';
     FooterModule,
     NavbarModule,
     FixedPluginModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

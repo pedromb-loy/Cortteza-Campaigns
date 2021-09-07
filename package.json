@@ -22,7 +22,7 @@
     "@types/chart.js": "^2.9.15",
     "chart.js": "^2.9.3",
     "chartjs-plugin-datalabels": "^0.7.0",
-    "file-upload-with-preview": "^4.0.8",
+    "file-upload-with-preview": "^4.2.0",
     "ng2-charts": "^2.3.0",
     "ngx-spinner": "^8.1.0",
     "rxjs": "~6.4.0",
